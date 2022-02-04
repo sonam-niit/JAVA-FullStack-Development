@@ -1,0 +1,91 @@
+create server-- select apache tomcat with perticular version
+
+browse the folder which you have downloaded and configure your server.
+
+you can see the created server in your server tab in eclipse.
+
+you can right click on that and start your server
+--------------------------------------------------------------
+
+create a new Dynamic Web Project
+
+give project name- you can select runtime (you created server)
+
+while creating a project you will get option to create web.xml file.
+
+create a project
+
+-----------------------------------------------------------------
+right click on project
+
+open src/main/java and create a class FirstServlet
+
+----------------------------------------------
+package com.simplilearn.demo;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class FirstServlet extends HttpServlet{
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, 
+IOException {
+		
+		PrintWriter out= resp.getWriter();
+		out.print("Welcome"); //write output in browser
+	}
+}
+-------------------------------------------------------------------------
+If you are getting error while extending HttpServlet class then follow
+
+right click project --> build path --> configure build path-->
+
+libraries --> click on class path --> right hand side you can see options to
+
+add external jars--> (select servlet-api.jar file [apachetomcat folder-->lib-->servlet-api.jar])
+
+--> select and apply
+
+-----------------------------------------------------------------------------
+create html file---
+
+src--> main --> webapp --> right click here and create HTML file
+
+<a href="login">Click here for login</a>
+
+----------------------------------------------------------------------------
+open web.xml -- by default if you see design you can click on source tab and check code of the same
+---------------------------------------------------------------------------------------------
+
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+  <display-name>FirstProject</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+  </welcome-file-list>
+  <!-- configure my servlet -->
+  <servlet>
+  	<servlet-name>first</servlet-name>
+  	<servlet-class>com.simplilearn.demo.FirstServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>first</servlet-name>
+  	<url-pattern>/login</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+-----------------------------------------------------------------------------------
+if you forgot to create web.xml file while creating aproject then 
+
+right click on project --> Java EE tools--> generate deployment descriptor stub
+
+---------------------------------------------------------------------------------------
+
+right click on your project and run as server to see output.
+
