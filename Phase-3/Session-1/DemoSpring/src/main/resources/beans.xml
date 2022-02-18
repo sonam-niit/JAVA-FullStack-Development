@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="s" class="com.simplilearn.DemoSpring.Student">
+    	<property name="name" value="Sonam Soni"></property>
+    	<property name="marks" ref="m"></property>
+    </bean>
+    
+    <bean id="m" class="com.simplilearn.DemoSpring.Marks">
+    	<property name="phy" value="89"></property>
+    	<property name="chem" value="88"></property>
+    	<property name="math" value="90"></property>
+    </bean>
+
+</beans>
