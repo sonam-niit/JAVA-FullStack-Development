@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <title>Bootstrap Grid</title>
+</head>
+<body>
+
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="valid01">FirstName</label>
+                <input type="text" class="form-control" id="valid01" placeholder="First Name"
+                required>
+                <div class="invalid-feedback">
+                    First Name can not be Empty
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="valid02">LastName</label>
+                <input type="text" class="form-control" id="valid02" placeholder="Last Name"
+                required>
+                <div class="invalid-feedback">
+                    Last Name can not be empty
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="valid03">UserName</label>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
+                    </div>
+                    <input type="text" class="form-control" id="valid03" placeholder="Enter Username"
+                    aria-describedby="inputGroupPrepend" required>
+                </div>
+                <div class="invalid-feedback">
+                   Please Choose a proper UserName
+                </div>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-3">
+                <label for="valid04">City</label>
+                <input type="text" class="form-control" id="valid04" placeholder="Enter City"
+                required>
+                <div class="invalid-feedback">
+                  provide valid city name
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="valid05">state</label>
+                <input type="text" class="form-control" id="valid05" placeholder="Enter State"
+                required>
+                <div class="invalid-feedback">
+                  provide valid State name
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <label for="valid06">ZipCode</label>
+                <input type="text" class="form-control" id="valid06" placeholder="Enter ZipCode"
+                required>
+                <div class="invalid-feedback">
+                  provide valid ZipCode
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mb-3">
+            <label for="disabledInput">I like to read the topics:</label>
+            <input id="disabledInput" class="form-conrol" type="text" placeholder="Web Development" disabled>
+        </div>
+        <p> Where did you find Us?</p>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="option1" id="ch1" name="locate">
+            <label class="form-check-label" for="ch1">Facebook</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="option2" id="ch2" name="locate">
+            <label class="form-check-label" for="ch2">Linked In</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" value="option3" id="ch3" name="locate">
+            <label class="form-check-label" for="ch3">Google</label>
+        </div>
+
+        <div class="form-group">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="check" required>
+                <label for="check" class="form-check-label">Agrre Terms and Conditions</label>
+                <div class="invalid-feedback">
+                    You must agree before submitting
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit">Submit Form</button>
+    </form>
+
+</div>
+</div>
+    </div>
+
+    <script>
+        (function(){
+            'use strict';
+            window.addEventListener('load',function(){
+                //fetch all forms
+                var forms=document.getElementsByClassName('needs-validation');
+                //loop over all submissions
+                var validation= Array.prototype.filter.call(forms,function(form){
+                    form.addEventListener('submit',function(event){
+                        if(form.checkValidity()===false)
+                        {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    },false)
+                })
+            },false)
+        })();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+</body>
+</html>

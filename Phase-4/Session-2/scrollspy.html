@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar">
+      <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+          <a class="navbar-brand" href="#">Logo</a>
+          <ul class="navbar-nav">
+              <li class="nav-item">
+                  <a href="#home" class="nav-link">Home</a>
+              </li>
+              <li class="nav-item">
+                <a href="#about" class="nav-link">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="#contact" class="nav-link">Contact</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link dropdown-toggle" id="mydropdown" data-toggle="dropdown">
+                    Courses</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">JAVA</a>
+                    <a class="dropdown-item" href="#">HTML</a>
+                    <a class="dropdown-item" href="#">Spring</a>
+                </div>
+            </li>
+          </ul>
+      </nav>
+    <div id="home" class="container-fluid bg-success" style="padding-top: 80px; padding-bottom: 80 px;">
+        <h1>home page</h1>
+        <h2>This is first Section</h2>
+        <h3>Home Secction</h3>
+        <p>Scroll to another secction to check effect of scrollspy</p>
+    </div>
+    <div id="about" class="container-fluid bg-primary" style="padding-top: 160px; padding-bottom: 160 px;">
+        <h1>About page</h1>
+        <h2>This is second Section</h2>
+        <h3>Contact Secction</h3>
+        <p>Scroll to another secction to check effect of scrollspy</p>
+    </div>
+    <div id="contact" class="container-fluid bg-warning" style="padding-top: 160px; padding-bottom: 160 px;">
+        <h1>Contact page</h1>
+        <h2>This is second Section</h2>
+        <h3>Contact Secction</h3>
+        <p>Scroll to another secction to check effect of scrollspy</p>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
