@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var array=[1,2,3,4,5,6,7,8];
+
+        console.log(array);
+        console.log("Length: "+array.length);
+        //functions
+        //pop remove last index element
+        console.log(array.pop());
+        console.log("After Pop: "+array);
+        //add new element at last index
+        array.push(9);
+        console.log("After Push: "+array);
+        //remove first element and shift all other elements
+        console.log(array.shift());
+        console.log("After Shift: "+array);
+        //shift all by 1 shift and insert new element at 0th index
+        array.unshift(10);
+        console.log("After UnShift "+array);
+    </script>
+</body>
+</html>

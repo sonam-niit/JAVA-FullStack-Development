@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Callback Demo</h2>
+    <script>
+        function one(c1,c2,c3) {
+            console.log("one started");
+            setTimeout(() =>
+                {
+                    console.log("executed one") ;
+                    c1();
+                    c2();
+                    c3();
+                },
+             5000);
+
+        }
+        function two() {
+            console.log("two started");
+            console.log("two completed");
+        }
+        function third() {
+            console.log("three started");
+            console.log("three completed");
+        }
+        function cback() {
+            console.log("one completed");
+        }
+
+        one(cback,two,third);
+
+    </script>
+</body>
+
+</html>

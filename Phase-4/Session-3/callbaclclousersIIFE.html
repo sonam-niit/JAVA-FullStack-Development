@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Callbacks Clousers and IIFE's</h2>
+    <script>
+        //IIFE and clouser
+        const empId= (function(){
+            let count=0;
+
+            return function(){
+                ++count;
+                return `emp${count}`; //"emp"+conut
+            }
+        })();
+
+        console.log("Employee List");
+        console.log("Anurag: "+empId());
+        console.log("Dharani: "+empId());
+        console.log("Sibananda: "+empId());
+
+        //Callback
+        var greeting = function(name){
+            console.log("Welcome "+name);
+        }
+        var fullname=function(fname,lname,callback){
+            console.log("FullName: "+fname+" "+lname);
+            callback(fname+" "+lname);
+        }
+
+        //calling fullname function and pass greeting as an argument
+        fullname("Alex","Wilson",greeting);
+        fullname("Nandita","Vora",greeting);
+    </script>
+</body>
+</html>

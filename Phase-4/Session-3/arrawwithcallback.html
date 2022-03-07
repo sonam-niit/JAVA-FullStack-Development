@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //callback Demo with Arrow Function
+        var add = (a, b) => a + b;
+        var subtract = (a, b) => a - b;
+
+        var data = (callback) => callback(10,20);
+        //calling data function and passing add and subtract function as argument
+        console.log(data(add));
+        console.log(data(subtract));
+
+        //return function using arrow
+
+        const multi= (a) => (b)=> a*b;
+        const div=(a) => (b)=> a/b;
+
+        console.log(multi(10)(20));
+        console.log(div(10)(20));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //arraw function
+        const f1= ()=> 'hello world';
+
+        const add= (a,b) => a+b;
+
+        //arraw with IIFE
+        const f3= ((a,b)=>{
+            let num1=a+b;
+            let num2=a*b;
+            console.log( num1+num2);
+        })(2,4);
+
+        //calling a function
+        console.log(f1());
+        console.log(add(2,3));
+    </script>
+</body>
+</html>
