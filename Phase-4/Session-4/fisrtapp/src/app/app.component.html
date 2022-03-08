@@ -1,0 +1,27 @@
+<h1>InterPolation</h1>
+<hr>
+<h3>{{title}}</h3>
+<h4>Welcome {{fname }} {{lname}}</h4>
+<h1>Property Binding</h1>
+<hr>
+<img *ngIf="flag" [src]="imgurl" [height]="h" [width]="w">
+<h1>Event Binding</h1>
+<hr>
+<button on-click="show()">Click Me</button>
+<h1>Display Array using For</h1>
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Name</th><th>Availability</th><th>Price</th><th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of products">
+            <td [style.color]="color" [style.font-weight]="we">{{p.name}}</td>
+            <!--Class Binding-->
+            <td [class.inStock]="true">{{p.available}}</td>
+            <td>{{p.price}}</td>
+            <td [style.color]="p.rating>4?'green':'red'" [style.font-weight]="we">{{p.rating}}</td>
+        </tr>
+    </tbody>
+</table>
