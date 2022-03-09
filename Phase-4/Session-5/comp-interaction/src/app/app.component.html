@@ -1,0 +1,5 @@
+<h1>Parent Component</h1>
+<h3>Value received from Child Component {{cdata}}</h3>
+<input type="text" (keyup)="0" #ptext>
+
+<app-child [pdata]="ptext.value" (cevent)="cdata=$event"></app-child>

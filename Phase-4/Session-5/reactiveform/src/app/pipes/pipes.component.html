@@ -1,0 +1,28 @@
+<h2>Pipes Demo</h2>
+<h3>Uppercase and Lowercase Pipes</h3>
+<hr>
+<p>{{fullname | uppercase}}</p>
+<p>{{fullname | lowercase}}</p>
+<h3>Decimal Pipes</h3>
+<hr>
+<p>Simple Pi without format: {{pi}}</p>
+<p>pi: {{pi | number:'.5-5'}}</p>
+<p>pi: {{pi | number:'2.10-10'}}</p>
+<p>pi: {{pi | number:'.3-3'}}</p>
+<h3>Currency Pipes</h3>
+<hr>
+<p>A in USD: {{a | currency:'USD':true}}</p>
+<p>A in EURO: {{b | currency:'EURO':false:'4.2-2'}}</p>
+<p>A in INR: {{b | currency:'INR':true:'3.5-5'}}</p>
+<h3>Date Pipes</h3>
+<hr>
+<p>Today is: {{today}}</p>
+<p>Today is: {{today | date}}</p>
+<p>Today is: {{today | date:"dd/MM/yyyy"}}</p>
+<h3>JSON Pipes</h3>
+<hr>
+<p>JSON Object: {{obj}}</p>
+<p>JSON Object: {{obj | json}}</p>
+<h3>Custom Pipes</h3>
+<hr>
+<p>{{cust | convetFromSpace:' '}}</p>

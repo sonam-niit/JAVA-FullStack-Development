@@ -24,4 +24,9 @@
             <td [style.color]="p.rating>4?'green':'red'" [style.font-weight]="we">{{p.rating}}</td>
         </tr>
     </tbody>
+    <div>
+        <h1>Two way binding</h1>
+        <input type="text" [(ngModel)]="fname"><br>
+        <h3>Welcome {{fname}}</h3>
+    </div>
 </table>
