@@ -1,0 +1,62 @@
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <h2>Add Product Form</h2>
+                <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group">
+                        <label>Id</label>
+                        <input type="text" [(ngModel)]="product.id" formControlName="id" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['id'].errors}">
+
+                        <div *ngIf="submitted && f['id'].errors" class="invalid-feedback">
+                            <div *ngIf="f['id'].errors['required']">
+                                The value for Id is Required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" [(ngModel)]="product.name" formControlName="name" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['name'].errors}">
+
+                        <div *ngIf="submitted && f['name'].errors" class="invalid-feedback">
+                            <div *ngIf="f['name'].errors['required']">
+                                The value for Name is Required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="text" [(ngModel)]="product.price" formControlName="price" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['price'].errors}">
+
+                        <div *ngIf="submitted && f['price'].errors" class="invalid-feedback">
+                            <div *ngIf="f['price'].errors['required']">
+                                The value for Price is Required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" [(ngModel)]="product.description" formControlName="description" class="form-control"
+                        [ngClass]="{'is-invalid':submitted && f['description'].errors}">
+
+                        <div *ngIf="submitted && f['description'].errors" class="invalid-feedback">
+                            <div *ngIf="f['description'].errors['required']">
+                                The value for Description is Required
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

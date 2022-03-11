@@ -16,4 +16,8 @@ export class ProductService {
   {
       return this.http.get<Product[]>(this.url);
   }
+  addProduct()
+  {
+    
+  }
 }
