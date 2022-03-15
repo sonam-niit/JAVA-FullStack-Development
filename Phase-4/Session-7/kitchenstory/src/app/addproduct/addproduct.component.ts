@@ -38,7 +38,6 @@ export class AddproductComponent implements OnInit {
     else {
       console.log(this.product);
       this.service.addProduct(this.product);
-
       this.router.navigateByUrl('list');
     }
   }
