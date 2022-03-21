@@ -1,0 +1,204 @@
+if you don't jdk 8 or 11 then first download any one of this and install
+-------------------------------------------------------------------------
+
+download jenkins.war file
+------------------------------
+
+open cmd
+
+move to that location where you have stored jenkins.war file
+
+execute command: java -jar jenkins.war
+
+************** If you have jdk 17 and installed 8 or 11 later *************
+
+copy jenkins jar file in jdk 11/8 bin folder
+
+move to that folder then execute java -jar jenkins.war
+********************************************************
+if you are able to execute then you can see initial admin password in cmd
+
+copy that open localhost:8080 and paste pasword there
+
+click on continue --> click on install all suggested plugins
+
+click & continue it will redirect you to register screen enter username, password,confirm password,fullname
+save and continue (remember the password and username)
+
+******************************************************************************
+create maven project
+
+add selenuium java and testng dependency in pom.xml
+
+create testng class in src/test folder
+
+add below mentioned code
+-------------------------------
+package com.simplilearn;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+public class FacebookTest {
+
+	WebDriver driver;
+	SoftAssert soft;
+
+	@BeforeMethod
+	public void beforeMethod() {
+		soft = new SoftAssert();
+	}
+
+	@AfterMethod
+	public void afterMethod() {
+		soft = null;
+	}
+
+	@Test
+	public void launchFB() {
+		System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\chromedriver.exe");
+		driver = new ChromeDriver();
+		driver.get("https://www.facebook.com/");
+	}
+	@Test(dependsOnMethods = {"launchFB"})
+	public void testTitle() {
+		soft.assertEquals("Facebook – log in or sign up", driver.getTitle());
+		soft.assertAll();
+		driver.close();
+	}
+}
+*************************************************************************************
+
+right click on this file and run as test ng test
+
+able to pass test then right click on your project --> test NG --> generate nest ng
+
+testng.xml file --> right click and run as test suite
+-------------------------------------------------------------
+
+right click on your project and run as maven test
+
+if build failed then add maven compiler dependency in pom.xml
+
+<dependency>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-compiler-plugin</artifactId>
+  <version>3.1</version>
+  <type>maven-plugin</type>
+</dependency>
+------------------------------------------------------
+run as maven test again and check if build success then now we will integrated the same with jenkins
+-----------------------------------------------------------------------------------------------------
+
+run java -jar jenkins.war again
+
+give username and password
+
+login --> to jenkins dashboad
+
+*********let's configure jdk and maven in jenkins ****************
+
+click on manage jenkins
+
+click on global tool confoiguration
+
+deselect the option install automatically
+
+in name: give the name : jdk 1.8
+in java_HOme : path of your jdk
+
+------------------------------------------
+click on maven --> add maven
+
+to check your maven version: eclipse--> windows--> preferences --> maven --> installation --> check maven embedded version
+
+select maven version which will install automatically.
+
+*****************************************************************************************
+
+manage jenkins --> manage plugins --> available --> maven integration plugin -- install without restart
+
+create new Item --> give name --> maven project --> ok
+
+dive the description --> first integration with jenkins
+
+-----------------------------------------------------------
+
+build
+---------------
+root pom: give the location of your projects pom.xml file
+
+goals: clean test
+
+save and apply --> build now
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+Selenium grid Set up
+--------------------------------
+to execute multiple test scripts in diffrent VM
+
+to set up 
+
+download selenium standalone jar file
+
+Setting up a HUb
+-----------------
+go to that location where you have stored selenium standalone jar
+
+java -jar selenium-server-standalone-3.5.0.jar -role hub
+
+
+once it is started check console: http://localhost:4444/console
+---------------------------------------------------------------
+
+Set Up Node:
+----------------------
+open another cmd > chnage directory of selenium standalone jar > execute below command
+
+java -jar selenium-server-standalone-3.5.0.jar -role node -hub http://192.168.84.88:4444/grid/register/
+
+again check console for node registered or not: http://localhost:4444/grid/console
