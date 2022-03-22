@@ -1,0 +1,59 @@
+Open AWS Console
+--------------------------
+click on services
+
+compute --> EC2 -->Ec2 Dashboard
+
+click on LauchInstances
+------------------------------------
+select AMI : Amazon AMI
+
+select instance type: t2.micro
+
+configureInstace details: keep as default
+just check the default values
+
+Storage: by default the size is 8GB, increase if required
+
+Tags: key value pair
+Add Tag --> Name = FirstInstance
+
+Security Group: give name and also change desc name
+like: firstInstance
+firstInstance created 2022-03-22T10:32:27.283+05:30
+
+also click on Add Rule
+in ssh --> click on dropdown and change it to myIP
+add http --> keep as it is
+add Rule --> All TCP --> port 0- 65534 -> 0.0.0.0/0, ::/0 in custom
+
+review and launch
+
+generate new Keypair --> use RAS algorithm
+download key 
+
+lauch instance
+--------------------------------------------------------------------------
+after lauch click on instance and click on connect
+
+you will be able to connect with cmd 
+
+execute below  mentioned command to install httpd server
+
+sudo yum install httpd -y
+
+move to the html folder /var/www/html
+
+create new file using vi editor: sudo vi index.html
+
+now you are in vi editor: press i to edit the file and write your code (HTML code)
+
+to save and close vi editor: press esc then :wq! enter
+
+file saved
+
+start http service: sudo service httpd start
+
+take public Ip of your instance and open the same in browser
+
+see your index.html file live

@@ -1,0 +1,38 @@
+Create Volume in the same availability
+zone where you have Instance
+--------------------------------------
+
+after that refresh volume 
+> select volume
+> attach it to the instance
+> connect with your instance
+
+>execute lsblk to check avaible volume
+
+xvda -- instance volume
+xvdf -- attached volume
+
+-----------------------------------------
+to check is there any data available
+sudo file -s /dev/xvdf
+
+to format the xvdf file system to ext4
+
+sudo mkfs -t ext4 /dev/xvdf
+
+let's create one directory and mount it to the volume
+mkdir /testdata
+
+mount it to volume
+sudo mount /dev/xvdf /testdata/
+
+check if mounted or not ? --> lsblk
+
+if you want to check the disk space --> df -h . (to get for xvda)
+
+to get for all --> df -h
+
+to unmount
+sudo umount /dev/xvdf
+
+check using lsblk
