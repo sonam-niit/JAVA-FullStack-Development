@@ -31,9 +31,12 @@ public class Sample {
 	{
 		return fname+" "+lname;
 	}
+	public float toFeranHit(float celcius){
+		return ((celsius*9)/5)+32  ;
+	}
 	public static void main(String[] args) {
 		Sample s=new Sample();
-		
+		s.display();//calling a method
 		Scanner sc=new Scanner(System.in);
 		System.out.println("Enter your age");
 		int input=sc.nextInt();

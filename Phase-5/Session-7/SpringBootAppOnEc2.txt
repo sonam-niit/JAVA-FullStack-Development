@@ -1,0 +1,45 @@
+*******Deploy Spring Boot Application on AWS Instance **********
+
+Step 1: create springboot application
+
+	> simple create a controller
+	> implement get mapping
+		@getMapping("/)
+		public String hello(){
+			return "Hellooo from AWS";
+		}
+	> add @componentScan in Application
+	> run application and check whether it is working fine or not
+	> run app as maven install
+	> which is going to create Jar file in target folder
+
+Step 2: create Instance on AWS EC2
+	>in security group add rule with TCP and give port no: 8080
+	> keep that .pem with you
+
+Step 3: connect with your instance using mobaxterm
+	> copy .pem file in one folder
+	> move to that folder using mobaXterm
+	> execute that ssh command (you can copy the same from your ssh client)
+	> ssh -i "test.pem" ec2-user@ec2-54-226-72-13.compute-1.amazonaws.com
+
+	> connected with EC2
+
+Step 4: drag your jar file to this mobaXterm
+
+(Note: If not using mobaXterm then follow this command to copy jar file from your local machine to EC2)
+(execute from your local machine)
+scp -i <path of your .pem file> <path of your jar file> ec2-user@ec2-54-226-72-13.compute-1.amazonaws.com:~
+
+Step 5: install JDK 1.8 
+	sudo yum install jdk-1.8.0
+
+	it will propmt ? yes
+
+	after installation: sudo java -version
+
+Step 6: run your Jar file
+	java -jar name_of_your_jar.jar 
+
+	publicId:8080
+	
