@@ -1,0 +1,46 @@
+Step 1: Create one Master and One Worker Instance
+	copy key (.pem file) connect it to mobaXterm
+
+step 2: install docker on both instances
+	do docker login to connect it with docker hub
+
+step 3: set up hosts config file
+
+	>sudo vi /etc/hosts
+	>press i to insert
+	
+	type privateIpOfMatser master
+	     privateIpOfWorker worker1
+
+	esc
+	:wq!
+	enter
+step 4: check file updated or not by executing ping command
+
+	ping master
+	ctrl + c (to stop)
+	ping worker1
+	ctrl + c (to stop)
+
+step 5: init swarm
+	(if previously already initiated a swarm them first realese your node from that swarm by using below command >docker swarm leave --force)
+
+	> docker swarm init --advertise-addr 172.31.19.90 (Ip address of master node)
+	
+	you will get one link that execute on worker node to join this swarm
+
+	> docker swarm join --token (token number)
+	(In your machine you will get diffrent link)
+
+	>docker node ls (execute on master console)
+
+Step 6: create service with 2 replicas
+
+	>docker service create --name cluserservice --publish 8082:8082 --replicas 2 sonamsoni/myimage
+	>docker service ps cluserservice
+
+	you can check 2 services are running 
+	1 is on master node
+	1 is on worker node
+
+

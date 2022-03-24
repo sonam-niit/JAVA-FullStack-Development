@@ -1,0 +1,26 @@
+********** Push docker image on docker Hub **********
+
+Step 1: cretate account on https://hub.docker.com/
+
+	login
+
+Step 2: login from ec2 instance console
+	
+	>sudo docker login
+
+	>username: enter
+	>password: enter password (it is not visible, just type it)
+
+	enter
+	
+	while login if geeting error of access denied then execute below mentioned command
+	>sudo chmod 666 /var/run/docker.sock
+
+	after that try to login again
+
+Step 3: create tag for docker image push
+
+	>sudo docker tag myimage sonamsoni/myimage  (you can give any name for repo)
+
+	>sudo docker push sonamsoni/myimage
+	

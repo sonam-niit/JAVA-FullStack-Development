@@ -1,0 +1,43 @@
+********** Deploy image on docker swarm ************
+
+
+docker swarm : managin multiple containers running on diffrent hosts
+------------------------------------------------------------------------
+
+where we will initialize swarm that node become leader node
+
+and other nodes can join to this node and you can use them as worker node
+
+---------------------------------------------------------------------------
+
+to access : sudo chmod 666 /var/run/docker.sock
+
+step 1: initialize docker swarm
+
+	> docker swarm init
+	> docker node ls
+	(managerial status of your node is Leader)
+
+step 2: create service in docker swarm
+
+	>docker service create -p 8081:8081 --name webserve myimage
+	>docker service ls
+
+	you can see the running service
+
+	(published on 8081 but target is 80)
+	>curl localhost:80
+
+******** Scale a docker container on a dockere swarm ***********
+
+	>docker service ls
+	>docker service ps webserve
+
+	>docker service scale webserve=3
+
+	>docker service ls
+	>docker service ps webserve	
+
+	
+
+	

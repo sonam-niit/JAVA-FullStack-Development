@@ -32,7 +32,7 @@ Step 4: drag your jar file to this mobaXterm
 scp -i <path of your .pem file> <path of your jar file> ec2-user@ec2-54-226-72-13.compute-1.amazonaws.com:~
 
 Step 5: install JDK 1.8 
-	sudo yum install jdk-1.8.0
+	sudo yum install java-1.8.0
 
 	it will propmt ? yes
 

@@ -1,0 +1,56 @@
+Step 1: goto your amazon console account and create 1 instance
+	AMI: ubantu OS
+	
+	chnage volume size: 30
+	in security groups add all tcp and http
+
+	before launching the instance download the pem file 
+	using that we can connect to mobaXterm
+
+Step 2: start mobaXterm
+	move to that location where you have stored .pem file
+
+	execute ssh command provided on ssh client
+
+step 3: install docker on instance
+
+	1. set up the repo
+	> sudo apt-get update
+	> sudo apt-get install ca-certificates curl gnupg lsb-release
+	2. Add Docker’s official GPG key:
+
+	>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+	> echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list /dev/null
+
+	3. Install Docker
+
+	> sudo apt-get update
+ 	> sudo apt-get install docker-ce docker-ce-cli containerd.io
+	it will prompt do you want to continue type Y 
+
+Step 4: if docker installed chek versions
+	docker -v or docker --version
+	sudo docker info
+
+step 5: let's create a docker image of our code
+
+	> git clone https://github.com/sonam-niit/docker_master.git
+	> cd docker_master
+	> ls (check the no of files and folder in docker_master folder)
+	
+	> sudo docker build -t myimage . (. is mendatory)
+
+	> sudo docker images (to check the available images)
+
+	> sudo docker run -d --name mycontainer -p 80:80 myimage
+		(run image on mycontainer)
+
+	>sudo docker container ps -a (check available containers)
+
+	>curl localhost:80
+	(check the running file on 80 port)
+
+	the same you can see on your publicip:80
+
+	
