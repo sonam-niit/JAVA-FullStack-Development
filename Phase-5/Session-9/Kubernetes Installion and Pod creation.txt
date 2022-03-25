@@ -1,0 +1,130 @@
+Step 1: goto your amazon console account and create 1 instance
+	AMI: ubantu OS
+	
+	chnage volume size: 30
+	in security groups add all tcp and http
+
+	before launching the instance download the pem file 
+	using that we can connect to mobaXterm
+
+Step 2: start mobaXterm
+	move to that location where you have stored .pem file
+
+	execute ssh command provided on ssh client
+
+step 3: install docker on instance
+
+	1. set up the repo
+	> sudo apt-get update && sudo apt-get install ca-certificates curl gnupg lsb-release
+
+	2. Add Docker’s official GPG key:
+
+	>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+
+	> echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list /dev/null
+
+	3. Install Docker
+
+	> sudo apt-get update && sudo apt-get install docker-ce docker-ce-cli containerd.io
+	it will prompt do you want to continue type Y 
+
+Step 4: if docker installed chek versions
+	docker -v or docker --version
+	sudo docker info
+
+Step 5: install Kubernetes
+
+	Update the apt package index and install packages needed to use the Kubernetes apt repository:
+
+	> sudo apt-get update && sudo apt-get install -y apt-transport-https ca-certificates curl
+
+Download the Google Cloud public signing key:
+
+> sudo curl -fsSLo /usr/share/keyrings/kubernetes-archive-keyring.gpg https://packages.cloud.google.com/apt/doc/apt-key.gpg
+
+Add the Kubernetes apt repository:
+
+>echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+Update apt package index, install kubelet, kubeadm and kubectl, and pin their version:
+
+>sudo apt-get update
+>sudo apt-get install -y kubelet kubeadm kubectl
+>sudo apt-mark hold kubelet kubeadm kubectl
+
+
+********* initalize kubernetes ************
+
+sudo kubeadm init
+
+if getting error then configure below steps to resolve
+-----------------------------------------------------------
+
+****** disabling swap **********
+
+>sudo swapoff -a
+>sudo sed -i ' /swap /s/^/#/' /etc/fstab
+
+***********adding cgroup ************
+configure daemon.json file which is located on /etc/docker/daemon.json
+
+> sudo vi /etc/docker/daemon.json
+
+add by pressing i
+{
+
+        "exec-opts":["native.cgroupdriver=systemd"]
+}
+
+esc + :wq! +enter
+
+once the file updated
+lets restart docker services
+-------------------------------------------
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+sudo systemctl restart kubelet
+
+check the driver updated or not in daemon file
+
+>sudo docker info | grep -i cgroup
+
+To start using your cluster, you need to run the following as a regular user:
+
+ > mkdir -p $HOME/.kube
+ > sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+ > sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+After the cluster gets started, deploy a weave network to the cluster.
+
+>export kubever=$(kubectl version | base64 | tr -d '\n')
+>kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$kubever"
+
+
+With weave network deployment, validate that the node is up and running. That will help to deploy a Docker container to the Kubernetes cluster.
+
+>kubectl get node
+>kubectl get pods --all-namespaces
+
+to get cluster ID
+>kubectl get svc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
